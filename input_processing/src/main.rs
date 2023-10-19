@@ -89,7 +89,7 @@ fn main() {
     let mut dataset_vector: Vec<Vec<i32>> = Vec::new();
     match extract_data(dataset_path) {
         Ok(extracted_vector) => {
-            dataset_vector = extract_data;
+            dataset_vector = extracted_vector;
         }
         Err(error) => println!("Error in processing dataset: {}", error),
     }
