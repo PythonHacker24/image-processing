@@ -19,7 +19,7 @@ fn extract_data(dataset_file_path: String) -> Result<Vec<Vec<i32>>, Box<dyn Erro
         }
         output_vector.push(numbers);
     }
-    Ok(output_vector);
+    Ok(output_vector)
 }
 
 fn main() {
