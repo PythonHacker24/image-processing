@@ -32,10 +32,7 @@ fn main() {
     match extract_data(args[0].clone()) {
         Ok(vertical_vector) => {
             for horizontal_vector in vertical_vector {
-                for element in horizontal_vector {
-                    print!("{},", element);
-                }
-                print!("\n");
+                println!("{:?}", horizontal_vector);    
             }
         }
         Err(error) => println!("Error in processing: {}", error),
