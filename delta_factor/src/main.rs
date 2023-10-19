@@ -29,10 +29,10 @@ fn main() {
         std::process::exit(1);
     }
     
-    let mut data_set: Vec<Vec<i32>> = Vec::new();
+    let mut dataset_vector: Vec<Vec<i32>> = Vec::new();
     match extract_data(args[0].clone()) {
         Ok(vertical_vector) => {
-            dataset = vertical_vector; 
+            dataset_vector = vertical_vector; 
         }
         Err(error) => println!("Error in processing: {}", error),
     }
