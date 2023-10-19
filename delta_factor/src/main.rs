@@ -28,4 +28,15 @@ fn main() {
         println!("[*] Path to dataset not provided");
         std::process::exit(1);
     }
+
+    match extract_data(args[0].clone()) {
+        Ok(vertical_vector) => {
+            for horizontal_vector in vertical_vector {
+                for element in horizontal_vector {
+                    print!("{},", element);
+                }
+                print!("\n");
+            }
+        }
+    }
 }
