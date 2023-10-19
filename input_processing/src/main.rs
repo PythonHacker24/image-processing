@@ -85,12 +85,28 @@ fn main() {
 
     let image_path = args[0].clone();
     let dataset_path = args[1].clone();
-    println!("[+] Dataset Path: {}", dataset_path);
 
-    let image_linear_vector = linear_data_of_image(image_path);
-    for element in image_linear_vector {
-        for _ in 0..=element {
-            print!("|");
+    let mut dataset_vector: Vec<Vec<i32>> = Vec::new();
+    match extract_data(dataset_path) {
+        Ok(extracted_vector) => {
+            dataset_vector = extract_data;
+        }
+        Err(error) => println!("Error in processing dataset: {}", error),
+    }
+
+    let input_image_linear_vector = linear_data_of_image(image_path);
+    let mut delta_vector: Vec<Vec<i32>> = Vec::new();
+    for sample_vector in 0..=dataset_vector.len() {
+        let mut layer_delta: Vec<i32> = Vec::new();
+        for pixel_value in 0..=sample_vector.len() {
+            layer_delta.push(sample_vector[pixel_value] - input_image_linear_vector[pixel_value]);
+        }
+        delta_vector.push(layer_delta);
+    }
+
+    for horizontal_vector in delta_vector {
+        for pixel in horizontal_vector {
+            print!("{} ", pixel);
         }
         print!("\n");
     }
