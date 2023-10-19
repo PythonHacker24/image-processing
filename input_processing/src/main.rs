@@ -67,7 +67,7 @@ fn main() {
     let dataset_path = args[1].clone();
     println!("[+] Dataset Path: {}", dataset_path);
 
-    let image_linear_vector = linear_data_of_image(image_vector);
+    let image_linear_vector = linear_data_of_image(image_path);
     for element in image_linear_vector {
         println!("{} ", element);
     }
