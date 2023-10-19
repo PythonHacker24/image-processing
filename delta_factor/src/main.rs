@@ -1,6 +1,6 @@
 use std::error::Error;
 use std::fs::File;
-use std::io::{self, BufRead}
+use std::io::{self, BufRead};
 
 fn extract_data(dataset_file_path: String) -> Result<Vec<Vec<i32>>, Box<dyn Error>> {
     let file = File::open(dataset_file_path)?;
@@ -23,7 +23,7 @@ fn extract_data(dataset_file_path: String) -> Result<Vec<Vec<i32>>, Box<dyn Erro
 }
 
 fn main() {
-    let args: Vec<String> = env::args().skip(1).collect();
+    let args: Vec<String> = std::env::args().skip(1).collect();
     if args.is_empty() {
         println!("[*] Path to dataset not provided");
         std::process::exit(1);
