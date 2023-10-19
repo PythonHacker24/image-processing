@@ -28,12 +28,11 @@ fn main() {
         println!("[*] Path to dataset not provided");
         std::process::exit(1);
     }
-
+    
+    let mut data_set: Vec<Vec<i32>> = Vec::new();
     match extract_data(args[0].clone()) {
         Ok(vertical_vector) => {
-            for horizontal_vector in vertical_vector {
-                println!("{:?}", horizontal_vector);    
-            }
+            dataset = vertical_vector; 
         }
         Err(error) => println!("Error in processing: {}", error),
     }
