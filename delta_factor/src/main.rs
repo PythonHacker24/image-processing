@@ -38,6 +38,6 @@ fn main() {
                 print!("\n");
             }
         }
-        Err(error) => println!("Error in processing: {}", error);
+        Err(error) => println!("Error in processing: {}", error),
     }
 }
