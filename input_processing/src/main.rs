@@ -1,6 +1,6 @@
 extern crate image; 
 
-use std::{env, fs};
+use std::{env, fs::{self, File}, error::Error, io::{self, BufRead}};
 use image::GenericImageView;
 
 fn image_to_vector(location: String) -> Vec<Vec<Vec<u8>>>{
@@ -53,6 +53,26 @@ fn linear_data_of_image(path: String) -> Vec<u8> {
     let linear_vector: Vec<u8> = linearator(pixelated_vector);
     
     return linear_vector;
+}
+
+fn extract_data(dataset_file_path: String) -> Result<Vec<Vec<i32>>, Box<dyn Error>> {
+    let file = File::open(dataset_file_path)?;
+    let reader = io::BufReader::new(file);
+
+    let mut output_vector: Vec<Vec<i32>> = Vec::new();
+
+    for line in reader.lines() {
+        let line = line?;
+        let mut numbers: Vec<i32> = Vec::new();
+
+        for num_str in line.split(',') {
+            if let Ok(num) = num_str.trim().parse() {
+                numbers.push(num);
+            }
+        }
+        output_vector.push(numbers);
+    }
+    Ok(output_vector)
 }
 
 fn main() {
