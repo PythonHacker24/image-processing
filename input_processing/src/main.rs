@@ -96,12 +96,12 @@ fn main() {
 
     let input_image_linear_vector = linear_data_of_image(image_path);
     let mut delta_vector: Vec<Vec<i32>> = Vec::new();
-    for sample_vector in 0..=dataset_vector.len() {
-        let mut layer_delta: Vec<i32> = Vec::new();
-        for pixel_value in 0..=sample_vector.len() {
-            layer_delta.push(sample_vector[pixel_value] - input_image_linear_vector[pixel_value]);
+    for sample_vector in dataset_vector {
+        let delta_layer: Vec<i32> = Vec::new();
+        for pixel_pointer in 0..=sample_vector.len() {
+            delta_vector.push(dataset_vector[pixel_pointer] - input_image_linear_vector[pixel_pointer]);
         }
-        delta_vector.push(layer_delta);
+        delta_vector.push(delta_layer);
     }
 
     for horizontal_vector in delta_vector {
