@@ -97,7 +97,7 @@ fn main() {
     let input_image_linear_vector = linear_data_of_image(image_path);
     let mut delta_vector: Vec<Vec<i32>> = Vec::new();
     for sample_vector in dataset_vector {
-        let delta_layer: Vec<i32> = Vec::new();
+        let mut delta_layer: Vec<i32> = Vec::new();
         for pixel_pointer in 0..=sample_vector.len() {
             delta_layer.push(sample_vector[pixel_pointer] - input_image_linear_vector[pixel_pointer] as i32);
         }
