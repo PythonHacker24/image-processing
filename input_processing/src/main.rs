@@ -69,7 +69,10 @@ fn main() {
 
     let image_linear_vector = linear_data_of_image(image_path);
     for element in image_linear_vector {
-        println!("{} ", element);
+        for _ in element {
+            print!("|");
+        }
+        print!("\n");
     }
 }
 
