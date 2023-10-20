@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 
 plt.style.use('dark_background')
 
-with open('./dataset_handwritten/0_database.txt', 'r') as file:
+with open('./0_vs_0_delta.txt', 'r') as file:
     for line in file:
         activation_value = line.split(',')
         pixel_number = []
